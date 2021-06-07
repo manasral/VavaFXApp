@@ -24,15 +24,15 @@ public class Controller {
     private TextArea messageTextArea;
 
     @FXML
-    public void initialize() {
+    public void initialize () {
         usersList.setItems(FXCollections.observableArrayList(Main.USERS_DATA));
     }
 
     @FXML
-    private void sendMessage() {
+    private void sendMessage () {
         chatHistory.appendText(DateFormat.getDateTimeInstance().format(new Date()));
         chatHistory.appendText(System.lineSeparator());
-        if (!usersList.getSelectionModel().isEmpty()) {
+        if ( !usersList.getSelectionModel().isEmpty() ) {
             String selectedUser = usersList.getSelectionModel().getSelectedItem();
             chatHistory.appendText(selectedUser + ":");
             chatHistory.appendText(System.lineSeparator());
@@ -43,10 +43,10 @@ public class Controller {
     }
 
     @FXML
-    public void sendTextAreaMessage(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER) {
+    public void sendTextAreaMessage (KeyEvent event) {
+        if ( event.getCode() == KeyCode.ENTER ) {
             event.consume();
-            if (event.isShiftDown()) {
+            if ( event.isShiftDown() ) {
                 messageTextArea.appendText(System.lineSeparator());
             } else {
                 sendMessage();
